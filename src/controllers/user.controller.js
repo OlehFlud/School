@@ -1,6 +1,6 @@
-const { userService } = require('../services');
+const { userService, historyService } = require('../services');
 const { tokinazer, passwordHashed } = require('../helpers');
-const { ActionEnum, ResponseStatusCodeEnum } = require('../constants');
+const { ActionEnum, HistoryEnum, ResponseStatusCodeEnum } = require('../constants');
 
 module.exports = {
   createUser: async (req, res) => {
@@ -17,6 +17,8 @@ module.exports = {
         _id,
         { action: ActionEnum.USER_REGISTER, token: accessToken },
       );
+
+      await historyService.createHistory({ event: HistoryEnum.USER_REGISTERED, userId: _id });
 
       res.sendStatus(ResponseStatusCodeEnum.CREATED);
     } catch (e) {

@@ -1,5 +1,5 @@
 module.exports = {
-  PRODUCTS: 'products',
+  HISTORY: 'history',
   LESSON: 'lessons',
   USERS: 'user',
   ACCESS_TOKEN: 'access_token',
