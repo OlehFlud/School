@@ -28,8 +28,8 @@ module.exports = {
 
   MONGODB_URL: process.env.MONGODB_URL || 'mongodb://localhost/school',
 
-  ROOT_EMAIL: process.env.ROOT_EMAIL || 'mail',
-  ROOT_EMAIL_PASSWORD: process.env.ROOT_EMAIL_PASSWORD || 'password',
+  ROOT_EMAIL: process.env.ROOT_EMAIL || 'olegflud5@gmail.com',
+  ROOT_EMAIL_PASSWORD: process.env.ROOT_EMAIL_PASSWORD || '22ilehuv',
   ROOT_EMAIL_SERVICE: process.env.ROOT_EMAIL_SERVICE || 'gmail',
 
   SUPPORT_EMAIL: process.env.SUPPORT_EMAIL || 'mail',

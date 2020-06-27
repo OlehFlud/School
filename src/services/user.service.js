@@ -17,4 +17,12 @@ module.exports = {
       },
     },
   ),
+  updateUserByParams: (params, update) => UserModel.updateOne(params, update, { new: true }),
+
+  findUserByActionToken: (action, token) => UserModel.findOne({
+    $and: [
+      { 'tokens.action': action },
+      { 'tokens.token': token },
+    ],
+  }),
 };
