@@ -14,6 +14,7 @@
 // };
 
 const mongoose = require('mongoose');
+const { TableNames } = require('../../constants');
 
 const lessonSchema = new mongoose.Schema({
   theme: {
@@ -36,4 +37,4 @@ const lessonSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('Lesson', lessonSchema);
+module.exports = mongoose.model(TableNames.LESSON, lessonSchema);

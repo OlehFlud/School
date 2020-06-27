@@ -9,6 +9,7 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
 mongoose.connect(MONGODB_URL, { useNewUrlParser: true });
+
 const db = mongoose.connection;
 db.once('open', () => console.log('Connected'));
 db.once('error', (error) => console.log('Error', error));
@@ -30,8 +31,9 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', '*');
   next();
 });
-const { lessonRouter } = require('./routes');
+const { lessonRouter, userRouter } = require('./routes');
 
-app.use('/lesson', lessonRouter);
+app.use('/users', userRouter);
+app.use('/lessons', lessonRouter);
 
 server.listen(5000, () => console.log('Server has been started on port 5000'));
