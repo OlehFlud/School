@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
-const { TableNames } = require('../../constants');
+const { TableNames, UserStatusEnum } = require('../../constants');
 
+const tokenSubModel = {
+  token: String,
+  action: String,
+};
 const userSchema = new mongoose.Schema({
+
   name: {
     type: String,
     require: true,
@@ -18,7 +23,15 @@ const userSchema = new mongoose.Schema({
     type: String,
     require: false,
   },
+  status: {
+    type: String,
+    required: true,
+    default: UserStatusEnum.PENDING,
+  },
+  tokens: [tokenSubModel],
 
+}, {
+  timestamp: true,
 });
 
 module.exports = mongoose.model(TableNames.USERS, userSchema);

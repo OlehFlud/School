@@ -1,4 +1,4 @@
-const { MONGODB_URL } = require('./config/config');
+const { config } = require('./config');
 const express = require('express');
 const http = require('http');
 const morgan = require('morgan');
@@ -8,7 +8,7 @@ const server = http.createServer(app);
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 
-mongoose.connect(MONGODB_URL, { useNewUrlParser: true });
+mongoose.connect(config.MONGODB_URL, { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.once('open', () => console.log('Connected'));

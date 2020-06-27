@@ -9,9 +9,14 @@ module.exports = {
 
       user.password = await passwordHashed(user.password);
 
-      await userService.createUser(user);
+      const { _id } = await userService.createUser(user);
 
-      await tokinazer(ActionEnum.USER_REGISTER);
+      const { accessToken } = tokinazer(ActionEnum.USER_REGISTER);
+
+      await userService.addActionToken(
+        _id,
+        { action: ActionEnum.USER_REGISTER, token: accessToken },
+      );
 
       res.sendStatus(ResponseStatusCodeEnum.CREATED);
     } catch (e) {
@@ -24,6 +29,4 @@ module.exports = {
     }
   },
 
-
-  
 };
