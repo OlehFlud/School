@@ -1,7 +1,7 @@
 const jwt = require('jsonwebtoken');
 
 const { ActionEnum, ResponseStatusCodesEnum } = require('../constants');
-const { ErrorHandler } = require('../error');
+const { ErrorHandler } = require('../errors');
 const { config } = require('../config');
 
 module.exports = (action) => {

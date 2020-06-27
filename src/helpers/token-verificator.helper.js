@@ -3,7 +3,7 @@ const { promisify } = require('util');
 const { config } = require('../config');
 const { ActionEnum } = require('../constants');
 const { ResponseStatusCodeEnum } = require('../constants');
-const { CustomErrors, ErrorHandler } = require('../error');
+const { CustomErrors, ErrorHandler } = require('../errors');
 
 const verifyPromise = promisify(verify);
 

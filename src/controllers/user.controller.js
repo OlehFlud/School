@@ -1,4 +1,4 @@
-const { userService, historyService } = require('../services');
+const { userService, historyService, mailService } = require('../services');
 const { tokinazer, passwordHashed } = require('../helpers');
 const { ActionEnum, HistoryEnum, ResponseStatusCodeEnum } = require('../constants');
 
@@ -18,8 +18,9 @@ module.exports = {
         { action: ActionEnum.USER_REGISTER, token: accessToken },
       );
 
-      await historyService.createHistory({ event: HistoryEnum.USER_REGISTERED, userId: _id });
+      await mailService.sendEmail(user.email, ActionEnum.USER_REGISTER, { token: accessToken });
 
+      await historyService.createHistory({ event: HistoryEnum.USER_REGISTERED, userId: _id });
       res.sendStatus(ResponseStatusCodeEnum.CREATED);
     } catch (e) {
       console.log(e);
