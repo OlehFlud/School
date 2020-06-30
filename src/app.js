@@ -31,8 +31,9 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Headers', '*');
   next();
 });
-const { lessonRouter, userRouter } = require('./routes');
+const { lessonRouter, userRouter, authRouter } = require('./routes');
 
+app.use('/auth', authRouter);
 app.use('/users', userRouter);
 app.use('/lessons', lessonRouter);
 

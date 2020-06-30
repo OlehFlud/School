@@ -1,7 +1,7 @@
-const { ActionEnum, RequestHeadersEnum, ResponseStatusCodeEnum } = require('../constants');
-const { CustomErrors, ErrorHandler } = require('../errors');
-const { userService } = require('../services');
-const { tokenVerificator } = require('../helpers');
+const { ActionEnum, RequestHeadersEnum, ResponseStatusCodeEnum } = require('../../constants');
+const { CustomErrors, ErrorHandler } = require('../../errors');
+const { userService } = require('../../services');
+const { tokenVerificator } = require('../../helpers');
 
 module.exports = async (req, res, next) => {
   try {

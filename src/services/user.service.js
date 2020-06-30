@@ -25,4 +25,6 @@ module.exports = {
       { 'tokens.token': token },
     ],
   }),
+
+  findOneByParams: (findObject) => UserModel.findOne(findObject),
 };

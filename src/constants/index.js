@@ -5,3 +5,4 @@ module.exports.UserStatusEnum = require('./user-status.enum');
 module.exports.HistoryEnum = require('./history.enum');
 module.exports.EmailActionEnum = require('./email-action.enum');
 module.exports.RequestHeadersEnum = require('./request-headers.enum');
+module.exports.ReqexpEnum = require('./reqexp.enum');
