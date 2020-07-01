@@ -7,4 +7,5 @@ module.exports = {
     return lessonToCreate.save();
   },
 
+  findLessonById: (lessonId) => LessonModel.findById(lessonId),
 };

@@ -4,4 +4,5 @@ module.exports = {
 
   USER_REGISTERED: 'user_registered',
   USER_CONFIRMED: 'user_confirmed',
+  LESSON_CREATED: 'lesson_created',
 };
