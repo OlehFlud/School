@@ -5,6 +5,7 @@ const { RequestHeadersEnum } = require('../constants');
 const {
   ActionEnum, HistoryEnum, ResponseStatusCodeEnum, UserStatusEnum,
 } = require('../constants');
+const UserModel = require('../dataBase/models/user');
 
 module.exports = {
   createUser: async (req, res) => {
@@ -71,5 +72,13 @@ module.exports = {
         error: e,
       });
     }
+  },
+
+  updateUser: async (req, res, next) => {
+    const { _id } = req.params;
+    const parameters = req.body;
+    await userService.updateUserByParams({ _id }, parameters);
+    await historyService.createHistory({ event: HistoryEnum.USER_UPDATED, userId: _id });
+    res.sendStatus(ResponseStatusCodeEnum.OK);
   },
 };

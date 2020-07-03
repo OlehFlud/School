@@ -1,5 +1,5 @@
 const { lessonService, historyService } = require('../services');
-const { HistoryEnum } = require('../constants');
+const { HistoryEnum, ResponseStatusCodeEnum } = require('../constants');
 
 module.exports = {
   createLesson: async (req, res) => {
@@ -35,5 +35,20 @@ module.exports = {
         error: e,
       });
     }
+  },
+
+  updateLesson: async (req, res, next) => {
+    const { _id } = req.params;
+    const parameters = req.body;
+    await lessonService.updateLessonByParams({ _id }, parameters);
+    res.sendStatus(ResponseStatusCodeEnum.OK);
+  },
+
+  deleteLesson: async (req, res, next) => {
+    const { _id } = req.params;
+
+    await lessonService.removeLesson({ _id });
+
+    res.sendStatus(ResponseStatusCodeEnum.NO_CONTENT);
   },
 };

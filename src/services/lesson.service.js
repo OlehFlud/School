@@ -7,5 +7,9 @@ module.exports = {
     return lessonToCreate.save();
   },
 
+  updateLessonByParams: (params, update) => LessonModel.updateOne(params, update, { new: true }),
+
+  removeLesson: (removeObject) => LessonModel.findOneAndDelete(removeObject),
+
   findLessonById: (lessonId) => LessonModel.findById(lessonId),
 };

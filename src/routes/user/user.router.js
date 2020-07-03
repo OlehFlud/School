@@ -9,4 +9,7 @@ router.post('/',
 
 router.post('/confirm', tokenMiddleware.checkConfirmTokenMiddleware, userController.confirmUser);
 
+router.put('/:_id', userController.updateUser);
+
+
 module.exports = router;

@@ -5,4 +5,6 @@ module.exports = {
   USER_REGISTERED: 'user_registered',
   USER_CONFIRMED: 'user_confirmed',
   LESSON_CREATED: 'lesson_created',
+  USER_UPDATED: 'user_updated',
+  LESSON_UPDATED: 'lesson_updated',
 };
